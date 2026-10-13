@@ -35,6 +35,26 @@ export const InvoiceReviewModal = ({
 }: InvoiceReviewModalProps) => {
   if (!isOpen || !invoice) return null
 
+  return (
+    <InvoiceReviewModalContent
+      invoice={invoice}
+      onClose={onClose}
+      onSave={onSave}
+    />
+  )
+}
+
+interface InvoiceReviewModalContentProps {
+  invoice: InvoiceRecord
+  onClose: () => void
+  onSave: (updated: InvoiceRecord) => void
+}
+
+const InvoiceReviewModalContent = ({
+  invoice,
+  onClose,
+  onSave,
+}: InvoiceReviewModalContentProps) => {
   const [formData, setFormData] = useState<InvoiceRecord>({ ...invoice })
   const [zoom, setZoom] = useState<number>(1)
   const [mobileTab, setMobileTab] = useState<'datos' | 'documento'>('datos')
