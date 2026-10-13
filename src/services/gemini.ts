@@ -227,7 +227,7 @@ export async function extractInvoiceData(
 
     // Si mes vino vacío pero tenemos fecha_emision, deducir el mes en español
     if (!mes && fecha_emision) {
-      const match = fecha_emision.match(/(?:(\d{1,2})[\/\-\.])?(\d{1,2})[\/\-\.](\d{2,4})/)
+      const match = fecha_emision.match(/(?:(\d{1,2})[/.-])?(\d{1,2})[/.-](\d{2,4})/)
       if (match) {
         const monthNum = parseInt(match[2], 10)
         let yearNum = parseInt(match[3], 10)
